@@ -1,0 +1,1 @@
+HR.appController.addTemplate("backbone/templates/recruit/question-correcterrors",function(obj){{var __t,__p="";Array.prototype.join}with(obj||{})__p+='<div class="span13">\n    <div id="ques" class="span16 msB">'+(null==(__t=question)?"":__t)+'</div>\n    <textarea class="span16" id="answer" autocomplete="off"></textarea>\n</div>\n<div class="clear"></div>\n';return __p});

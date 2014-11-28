@@ -1,0 +1,77 @@
+#home {
+	div {
+		text-align: center;
+	}
+	#homeImage {
+		width: 400px;
+		height: 300px;
+	}
+	#startApp {
+		margin-top: 15px;
+		font-size: 30px;
+		padding: 20px 200px;
+	}
+}
+
+#play {
+	text-align: center;
+	input[name="country-name"] {
+		text-align: center;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		width: 400px;
+		font-size: 30px;
+		height: 50px !important;
+	}
+	button {
+		width: 193px;
+		&#submitAnswer {
+			margin-right: 10px;
+		}
+	}
+	.lives {
+		display: flex;
+		width: 320px;
+		margin-left: auto;
+		margin-right: auto;
+		div {
+			width: 10px;
+			height: 10px;
+			background-color:#18F500;
+			border-radius: 50%;
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+		&[state="two-lives"] {
+			#lifeThree {
+				background-color: #CF0000;
+			}
+		}
+		&[state="one-life"] {
+			#lifeThree, #lifeTwo {
+				background-color: #CF0000;
+			}
+		}
+		&[state="no-lives"] {
+			#lifeThree, #lifeTwo, #lifeOne {
+				background-color: #CF0000;
+			}
+		}
+	}
+	.image-cont {
+		margin: 50px 0;
+		height: 300px;
+		img {
+			width: 400px;
+		}
+	}
+	#answer {
+		padding-bottom: 15px;
+		font-size: 25px;
+		text-transform: uppercase;
+		display: none;
+	}
+}

@@ -1,0 +1,54 @@
+#home div {
+  text-align: center; }
+#home #homeImage {
+  width: 400px;
+  height: 300px; }
+#home #startApp {
+  margin-top: 15px;
+  font-size: 30px;
+  padding: 20px 200px; }
+
+#play {
+  text-align: center; }
+  #play input[name="country-name"] {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    font-size: 30px;
+    height: 50px !important; }
+  #play button {
+    width: 193px; }
+    #play button#submitAnswer {
+      margin-right: 10px; }
+  #play .lives {
+    display: flex;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto; }
+    #play .lives div {
+      width: 10px;
+      height: 10px;
+      background-color: #18F500;
+      border-radius: 50%;
+      margin-left: 5px;
+      margin-right: 5px; }
+    #play .lives[state="two-lives"] #lifeThree {
+      background-color: #CF0000; }
+    #play .lives[state="one-life"] #lifeThree, #play .lives[state="one-life"] #lifeTwo {
+      background-color: #CF0000; }
+    #play .lives[state="no-lives"] #lifeThree, #play .lives[state="no-lives"] #lifeTwo, #play .lives[state="no-lives"] #lifeOne {
+      background-color: #CF0000; }
+  #play .image-cont {
+    margin: 50px 0;
+    height: 300px; }
+    #play .image-cont img {
+      width: 400px; }
+  #play #answer {
+    padding-bottom: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    display: none; }
