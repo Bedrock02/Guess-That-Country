@@ -26,18 +26,32 @@
 			<script type="text/template" id="country-question-template">
 				<section class="row" id="play">
 					<h1>Guess The Country</h1>
-					<div class="row">
+
+					<div class="row flex-cont">
+
 						<div class="lives" state="full">
 							<div id="lifeOne"></div>
 							<div id="lifeTwo"></div>
 							<div id="lifeThree"></div>
 						</div>
+
+						<div class='record'>
+							<span>Correct: </span><span id="number">0</span>
+						</div>
 					</div>
+
 					<div class="row image-cont">
 						<div id="answer"></div>
 						<img id="countryImage" />
 					</div>
-					<input type="text" class="form-control" name="country-name" placeholder="Enter Answer">
+
+					<div class="row positive-reinforcement">
+						<span>Correct!</span>
+					</div>
+
+					<div class="row">
+						<input type="text" class="form-control" name="country-name" placeholder="Enter Answer">
+					</div>
 					<div class="btn-group">
 						<button type="button" class="btn btn-primary" id="submitAnswer">submit</button>
 						<button type="button" class="btn btn-danger" id="skipQuestion">skip</button>

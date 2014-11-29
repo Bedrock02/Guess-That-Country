@@ -4,7 +4,8 @@ app.CountryView = Backbone.View.extend({
 
 	events: {
 		'click #submitAnswer': 'checkAnswer',
-		'click #skipQuestion': 'nextModel'
+		'click #skipQuestion': 'nextModel',
+		'keypress input[name="country-name"]': 'checkSubmit'
 	},
 	lifeState: {
 		fullLife : 'full',
@@ -16,7 +17,7 @@ app.CountryView = Backbone.View.extend({
 	countryTmpl: _.template( $('#country-question-template').html() ),
 
 	initialize: function () {
-		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility');
+		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility', 'showReinforcement');
 		$.get('/api/countries', this.onCountriesSuccess);
 	},
 	onCountriesSuccess: function (data) {
@@ -33,6 +34,8 @@ app.CountryView = Backbone.View.extend({
 		this.$lives = this.$('.lives');
 		this.$image = this.$('#countryImage');
 		this.$answer = this.$('#answer');
+		this.$record = this.$('.record #number');
+		this.$reinforcement = this.$('.positive-reinforcement');
 		this.setImage(this.countryCollection[this.currentModel].imgPath);
 	},
 	setImage: function (path) {
@@ -48,7 +51,8 @@ app.CountryView = Backbone.View.extend({
 	},
 	correctAnswer: function () {
 		this.totalCorrectAnswers += 1;
-		this.nextModel();
+		this.$record.text(this.totalCorrectAnswers);
+		this.showReinforcement();
 	},
 	wrongAnswer: function () {
 		this.lives -=1;
@@ -74,6 +78,14 @@ app.CountryView = Backbone.View.extend({
 				},2000);
 		}
 	},
+	showReinforcement: function () {
+		this.$reinforcement.show('slow');
+		var that = this;
+		setTimeout( function () {
+			that.$reinforcement.hide('slow');
+			that.nextModel();
+		},2000);
+	},
 	toggleAnswerVisibility: function () {
 		this.showAnswer = !this.showAnswer;
 		if( this.showAnswer ) {
@@ -81,7 +93,6 @@ app.CountryView = Backbone.View.extend({
 			this.$answer.show('slow');
 		} else {
 			this.$answer.hide('slow');
-
 		}
 	},
 	changeState: function (nextState) {
@@ -89,6 +100,8 @@ app.CountryView = Backbone.View.extend({
 		this.$lives.attr('state',this.currentState);
 	},
 	nextModel: function () {
+		this.changeState(this.lifeState.fullLife);
+		this.lives = 3;
 		this.currentModel += 1;
 		if( this.$userInput.val() ) {
 			this.$userInput.val('');
@@ -117,5 +130,10 @@ app.CountryView = Backbone.View.extend({
 	},
 	shakeInput: function () {
 		this.$userInput.effect( "shake" );
+	},
+	checkSubmit: function (event) {
+		if(event.which === 13) {
+			this.checkAnswer();
+		}
 	}
 });

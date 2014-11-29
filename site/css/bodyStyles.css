@@ -24,11 +24,14 @@
     width: 193px; }
     #play button#submitAnswer {
       margin-right: 10px; }
+  #play .flex-cont {
+    display: flex;
+    justify-content: space-between;
+    font-size: 19px; }
   #play .lives {
     display: flex;
-    width: 320px;
-    margin-left: auto;
-    margin-right: auto; }
+    margin-top: auto;
+    margin-bottom: auto; }
     #play .lives div {
       width: 10px;
       height: 10px;
@@ -46,9 +49,14 @@
     margin: 50px 0;
     height: 300px; }
     #play .image-cont img {
-      width: 400px; }
+      width: 400px;
+      border: 1px solid #F2F2F2; }
   #play #answer {
     padding-bottom: 15px;
     font-size: 25px;
     text-transform: uppercase;
     display: none; }
+  #play .positive-reinforcement {
+    display: none;
+    font-size: 45px;
+    color: #18F500; }
