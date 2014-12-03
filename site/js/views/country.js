@@ -4,7 +4,8 @@ app.CountryView = Backbone.View.extend({
 
 	events: {
 		'click #submitAnswer': 'checkAnswer',
-		'click #skipQuestion': 'nextModel',
+		'click #skipQuestion': 'skipModel',
+		'click #endGame': 'endGame',
 		'keypress input[name="country-name"]': 'checkSubmit'
 	},
 	lifeState: {
@@ -78,6 +79,17 @@ app.CountryView = Backbone.View.extend({
 				},2000);
 		}
 	},
+	skipModel: function () {
+		var that = this;
+		this.toggleAnswerVisibility();
+		setTimeout(function () {
+			that.nextModel();
+			that.toggleAnswerVisibility();
+		},2000);
+	},
+	endGame: function () {
+		router.routeRequest('end', true);
+	},
 	showReinforcement: function () {
 		this.$reinforcement.show('slow');
 		var that = this;
@@ -115,8 +127,7 @@ app.CountryView = Backbone.View.extend({
 			this.$image.show("slow");
 
 		} else {
-			console.log('That is it, it is the end');
-			console.log('GO TO END GAME VIEW');
+			this.endGame();
 		}
 	},
 	render: function () {

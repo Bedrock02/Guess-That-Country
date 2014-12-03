@@ -3,11 +3,12 @@ var AppRouter = Backbone.Router.extend({
   routes: {
       '': 'index',
       'begin': 'getData',
+      'end': 'endGame',
       '*actions': 'defaultRoute' // Backbone will try match the route above first
   },
-  routeRequest: function (route, trigger) {
+  routeRequest: function (route, triggered) {
     this.view.remove();
-    this.navigate(route,trigger);
+    this.navigate(route,{trigger: triggered});
   },
   index: function () {
       if(this.view) {
@@ -18,7 +19,11 @@ var AppRouter = Backbone.Router.extend({
   },
   getData: function () {
       this.view = new app.CountryView();
+  },
+  endGame: function () {
+    console.log("lets end this game");
   }
+
 });
 var router = new AppRouter();
 Backbone.history.start();

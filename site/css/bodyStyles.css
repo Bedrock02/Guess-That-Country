@@ -1,3 +1,6 @@
+.container {
+  padding-bottom: 50px; }
+
 #home div {
   text-align: center; }
 #home #homeImage {
@@ -24,6 +27,13 @@
     width: 193px; }
     #play button#submitAnswer {
       margin-right: 10px; }
+    #play button#endGame {
+      margin-top: 60px;
+      width: 400px;
+      padding: 50px 9;
+      opacity: 0.5; }
+      #play button#endGame:hover {
+        opacity: 1; }
   #play .flex-cont {
     display: flex;
     justify-content: space-between;

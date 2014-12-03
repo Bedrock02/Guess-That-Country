@@ -1,3 +1,6 @@
+.container {
+	padding-bottom: 50px;
+}
 #home {
 	div {
 		text-align: center;
@@ -30,6 +33,15 @@
 		width: 193px;
 		&#submitAnswer {
 			margin-right: 10px;
+		}
+		&#endGame {
+			margin-top: 60px;
+			width: 400px;
+			padding: 50px 9;
+			opacity: 0.5;
+			&:hover {
+				opacity: 1;
+			}
 		}
 	}
 	.flex-cont {
