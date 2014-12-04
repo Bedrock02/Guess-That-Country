@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<div class="container">
+			
 			<script type="text/template" id="homeView">
 				<section class="row" id='home'>
 					<div class="row">
@@ -63,6 +64,26 @@
 					</div>
 				</section>
 			</script>
+
+			<script type="text/template" id="end-game-template">
+				<section class="row" id="endGameView">
+					<div class = "row">
+						<h1>Game Over</h1>
+						<h2>You Got <%= score %> Right</h2>
+					</div>
+
+					<div class = "row">
+						<img id="flagsImage" src="img/south-american-flags.png"/>
+					</div>
+
+					<div class="row">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default" id="restartGame">Try Again</button>
+						</div>
+					</div>
+				</section>
+			</script>
+
 		</div>
 		<script src="js/lib/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
@@ -70,6 +91,7 @@
 		<script src="js/lib/backbone-min.js"></script>
 		<script src="js/views/home.js"></script>
 		<script src="js/views/country.js"></script>
+		<script src="js/views/end.js"></script>
 		<script src="js/models/country.js"></script>
 		<script src="js/collections/countries.js"></script>
 		<script src="js/routers/router.js"></script>

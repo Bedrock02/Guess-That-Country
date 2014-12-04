@@ -35,7 +35,7 @@
 			margin-right: 10px;
 		}
 		&#endGame {
-			margin-top: 60px;
+			margin-top: 40px;
 			width: 400px;
 			padding: 50px 9;
 			opacity: 0.5;
@@ -95,5 +95,15 @@
 		display: none;
 		font-size: 45px;
 		color: #18F500;
+	}
+}
+
+#endGameView {
+	text-align: center;
+	img#flagsImage {
+		height: 400px;
+	}
+	button#restartGame {
+		margin-top: 30px;
 	}
 }

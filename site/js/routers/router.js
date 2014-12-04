@@ -3,7 +3,7 @@ var AppRouter = Backbone.Router.extend({
   routes: {
       '': 'index',
       'begin': 'getData',
-      'end': 'endGame',
+      'end/:score': 'endGame',
       '*actions': 'defaultRoute' // Backbone will try match the route above first
   },
   routeRequest: function (route, triggered) {
@@ -11,17 +11,13 @@ var AppRouter = Backbone.Router.extend({
     this.navigate(route,{trigger: triggered});
   },
   index: function () {
-      if(this.view) {
-        this.view.remove();
-      }
-      console.log('you are home');
       this.view = new app.HomeView();
   },
   getData: function () {
       this.view = new app.CountryView();
   },
-  endGame: function () {
-    console.log("lets end this game");
+  endGame: function (score) {
+    this.view = new app.EndGameView(score);
   }
 
 });

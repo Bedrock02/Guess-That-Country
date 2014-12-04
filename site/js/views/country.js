@@ -88,7 +88,7 @@ app.CountryView = Backbone.View.extend({
 		},2000);
 	},
 	endGame: function () {
-		router.routeRequest('end', true);
+		router.routeRequest('end/' + this.totalCorrectAnswers, true);
 	},
 	showReinforcement: function () {
 		this.$reinforcement.show('slow');
