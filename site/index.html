@@ -9,23 +9,30 @@
 	</head>
 	<body>
 		<div class="container">
-			
 			<script type="text/template" id="homeView">
-				<section class="row" id='home'>
+				<section id='home'>
 					<div class="row">
 						<h1>Know Your Countries</h1>
-						<img id="homeImage" src="http://placekitten.com/g/400/300"/>
+					</div>
+
+					<div class="row">
+						<img id="homeImage" src="img/collection-national-flags.png"/>
+						<br></br>
+
+						<p><strong>Purpose:</strong>  To Identify the Country that the given flag belongs to</p>
+						<p><strong>Limitations:</strong>  You only have three guesses for each flag</p>
+						<p><strong>Have Fun:</strong> Have fun with this!</p>
 					</div>
 					<div class="row">
 						<a>
-							<button type="button" class="btn btn-default" id="startApp">Start</button>
+							<button type="button" class="btn btn-primary" id="startApp">Start</button>
 						</a>
 					</div>
 				</section>
 			</script>
 
 			<script type="text/template" id="country-question-template">
-				<section class="row" id="play">
+				<section id="play">
 					<h1>Guess The Country</h1>
 
 					<div class="row flex-cont">
@@ -66,7 +73,7 @@
 			</script>
 
 			<script type="text/template" id="end-game-template">
-				<section class="row" id="endGameView">
+				<section id="endGameView">
 					<div class = "row">
 						<h1>Game Over</h1>
 						<h2>You Got <%= score %> Right</h2>
@@ -78,7 +85,7 @@
 
 					<div class="row">
 						<div class="btn-group">
-							<button type="button" class="btn btn-default" id="restartGame">Try Again</button>
+							<button type="button" class="btn btn-primary" id="restartGame">Try Again</button>
 						</div>
 					</div>
 				</section>

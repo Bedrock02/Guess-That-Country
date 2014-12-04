@@ -76,4 +76,5 @@
   #endGameView img#flagsImage {
     height: 400px; }
   #endGameView button#restartGame {
-    margin-top: 30px; }
+    margin-top: 30px;
+    width: 193px; }

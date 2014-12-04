@@ -47,6 +47,7 @@ app.get( '/api/countries', function(request, response) {
 		}
 	});
 });
+
 // End Routes--------------------/
 mongoose.connect( 'mongodb://localhost/countries_db');
 //Schemas
