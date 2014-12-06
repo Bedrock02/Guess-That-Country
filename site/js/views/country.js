@@ -51,7 +51,7 @@ app.CountryView = Backbone.View.extend({
 		}
 	},
 	correctAnswer: function () {
-		this.totalCorrectAnswers += 1;
+		this.totalCorrectAnswers += 3;
 		this.$record.text(this.totalCorrectAnswers);
 		this.showReinforcement();
 	},
