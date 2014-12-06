@@ -47,7 +47,33 @@ app.get( '/api/countries', function(request, response) {
 		}
 	});
 });
+//get list of all users that submitted a highscore
+//Post.find().sort([['updatedAt', 'descending']]).all(function (posts)
+app.get( '/api/users', function(request, response) {
+	return UserModel.find({}, null, {sort: {highscore: -1}}, function( err, users ) {
+		if(!err) {
+			return response.send( users );
+		} else {
+			return console.log( err );
+		}
+	});
+});
 
+//Insert a user with a highscore
+app.post( '/api/users', function(request, response) {
+	var user = new UserModel({
+		username: request.body.username,
+		highscore: request.body.highscore
+	});
+	user.save( function(err) {
+		if(!err) {
+			return console.log( 'created' );
+		} else {
+			return console.log( err );
+		}
+	});
+	return response.send( user );
+});
 // End Routes--------------------/
 mongoose.connect( 'mongodb://localhost/countries_db');
 //Schemas
@@ -56,5 +82,10 @@ var Country = new mongoose.Schema({
 	imgPath: String
 });
 
+var User = new mongoose.Schema({
+	username: String,
+	highscore: Number
+});
 //Models
 var CountryModel = mongoose.model('Country', Country);
+var UserModel = mongoose.model('User', User);

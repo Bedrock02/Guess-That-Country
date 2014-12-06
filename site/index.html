@@ -8,8 +8,9 @@
 		<link rel="stylesheet" href="css/jquery-ui.css">
 	</head>
 	<body>
-		<div class="container">
-			<script type="text/template" id="homeView">
+		<div class="container"></div>
+
+		<script type="text/template" id="homeView">
 				<section id='home'>
 					<div class="row">
 						<h1>Know Your Countries</h1>
@@ -76,14 +77,24 @@
 				<section id="endGameView">
 					<div class = "row">
 						<h1>Game Over</h1>
-						<h2>You Got <%= score %> Right</h2>
-					</div>
-
-					<div class = "row">
-						<img id="flagsImage" src="img/south-american-flags.png"/>
 					</div>
 
 					<div class="row">
+						<h3>High Scores</h3>
+						<ul id='scoreBoard' class="list-group" ></ul>
+					</div>
+
+					<div class="row">
+
+						<h3>Score: <%= score %> </h3>
+
+						<div class="input-group">
+      				<input type="text" class="form-control" placeholder="Enter Name" id="username">
+      				<span class="input-group-btn">
+        				<button id="submitScore" class="btn btn-default" type="button">Submit Score!</button>
+      				</span>
+    				</div>
+
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary" id="restartGame">Try Again</button>
 						</div>
@@ -91,16 +102,37 @@
 				</section>
 			</script>
 
-		</div>
+			<script type="text/template" id="userTemplate">
+				<ul class="user-item">
+					<li class="user-item-name"> <%=username%> </li>
+					<li class="user-item-score"> <%=highscore%> </li>
+				</ul>
+			</script>
+
+		<!-- Dependencies -->
 		<script src="js/lib/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
 		<script src="js/lib/underscore-min.js"></script>
 		<script src="js/lib/backbone-min.js"></script>
+		<!--End Dependencies -->
+
+		<!-- Views -->
 		<script src="js/views/home.js"></script>
 		<script src="js/views/country.js"></script>
 		<script src="js/views/end.js"></script>
+		<script src="js/views/user.js"></script>
+		<!-- End Views -->
+
+		<!-- Models -->
 		<script src="js/models/country.js"></script>
+		<script src="js/models/user.js"></script>
+		<!-- End Models -->
+
+		<!-- Collections -->
 		<script src="js/collections/countries.js"></script>
+		<script src="js/collections/users.js"></script>
+		<!-- End Collections -->
+
 		<script src="js/routers/router.js"></script>
 		<script src="js/app.js"></script>
 	</body>

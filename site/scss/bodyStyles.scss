@@ -107,4 +107,28 @@
 		margin-top: 30px;
 		width: 193px;
 	}
+	.input-group {
+		width: 450px;
+		margin-left: auto;
+		margin-right: auto;
+		input {
+			font-size: 20px;
+		}
+	}
+	ul {
+		&#scoreBoard {
+			width: 450px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 20px;
+			font-size: 20px;
+		}
+		&.user-item {
+			display: flex;
+			margin: 0;
+			list-style: none;
+			padding: 0;
+			justify-content: space-between;
+		}
+	}
 }
