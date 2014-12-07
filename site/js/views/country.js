@@ -18,7 +18,7 @@ app.CountryView = Backbone.View.extend({
 	countryTmpl: _.template( $('#country-question-template').html() ),
 
 	initialize: function () {
-		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility', 'showReinforcement');
+		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility', 'showReinforcement', 'modifyScore');
 		$.get('/api/countries', this.onCountriesSuccess);
 	},
 	onCountriesSuccess: function (data) {
@@ -51,13 +51,12 @@ app.CountryView = Backbone.View.extend({
 		}
 	},
 	correctAnswer: function () {
-		this.totalCorrectAnswers += 3;
-		this.$record.text(this.totalCorrectAnswers);
+		this.modifyScore(3);
 		this.showReinforcement();
 	},
 	wrongAnswer: function () {
 		this.lives -=1;
-
+		this.modifyScore(-1);
 		switch(this.lives) {
 			case 2:
 				this.changeState(this.lifeState.twoLives);
@@ -78,6 +77,10 @@ app.CountryView = Backbone.View.extend({
 					that.nextModel();
 				},2000);
 		}
+	},
+	modifyScore: function (points) {
+		this.totalCorrectAnswers += points;
+		this.$record.text(this.totalCorrectAnswers);
 	},
 	skipModel: function () {
 		var that = this;

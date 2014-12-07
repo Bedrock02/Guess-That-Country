@@ -2,7 +2,8 @@ var app = app || {};
 app.EndGameView = Backbone.View.extend({
 	events: {
 		'click #restartGame' : 'restartApp',
-		'click #submitScore' : 'addNewUser'
+		'click #submitScore' : 'addNewUser',
+		'keypress input': 'checkSubmit'
 	},
 	el: '.container',
 
@@ -16,6 +17,11 @@ app.EndGameView = Backbone.View.extend({
 
 		//this.listenTo(this.collection,'add', this.addtoScoreBoard);
 		this.listenTo( this.collection, 'reset', this.render );
+	},
+	checkSubmit: function (event) {
+		if(event.which === 13) {
+			this.addNewUser();
+		}
 	},
 	addNewUser: function () {
 		var name = this.$('#username').val();
