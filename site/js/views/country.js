@@ -1,5 +1,6 @@
 var app = app || {};
 app.CountryView = Backbone.View.extend({
+
 	el: '.container',
 
 	events: {
@@ -8,6 +9,7 @@ app.CountryView = Backbone.View.extend({
 		'click #endGame': 'endGame',
 		'keypress input[name="country-name"]': 'checkSubmit'
 	},
+
 	lifeState: {
 		fullLife : 'full',
 		twoLives : 'two-lives',

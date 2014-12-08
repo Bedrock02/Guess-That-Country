@@ -1,31 +1,19 @@
-// Module dependencies
-
 var application_root = __dirname,
-express = require( 'express' ), //web framework
-path = require( 'path' ), //Utilities for dealing with file paths
-mongoose = require( 'mongoose' ); //MongoDB integration
+express = require( 'express' ),
+path = require( 'path' ),
+mongoose = require( 'mongoose' );
 
-var app = express(); //create server
+var app = express();
 
-//Configure server
 
 app.configure( function() {
-	//parses request body and populates request.body
 	app.use( express.bodyParser() );
-
-	//checks request.body for HTTP method overrides
 	app.use( express.methodOverride() );
-
-	//perform route loopup based on URL and HTTP method
 	app.use( app.router );
-
-	//where to server static content
 	app.use( express.static( path.join (application_root, 'site')));
-
-	//Show all errors in development
 	app.use( express.errorHandler({ dumpExceptions: true, showStack: true}));
 });
-//start server
+
 var port = 4711;
 app.listen( port, function() {
 	console.log( 'Express server listening on port %d in %s mode',
@@ -47,8 +35,8 @@ app.get( '/api/countries', function(request, response) {
 		}
 	});
 });
+
 //get list of all users that submitted a highscore
-//Post.find().sort([['updatedAt', 'descending']]).all(function (posts)
 app.get( '/api/users', function(request, response) {
 	return UserModel.find({}, null, {sort: {highscore: -1}}, function( err, users ) {
 		if(!err) {
@@ -76,6 +64,7 @@ app.post( '/api/users', function(request, response) {
 });
 // End Routes--------------------/
 mongoose.connect( 'mongodb://localhost/countries_db');
+
 //Schemas
 var Country = new mongoose.Schema({
 	name: String,
@@ -86,6 +75,7 @@ var User = new mongoose.Schema({
 	username: String,
 	highscore: Number
 });
+
 //Models
 var CountryModel = mongoose.model('Country', Country);
 var UserModel = mongoose.model('User', User);

@@ -1,5 +1,6 @@
 var app = app || {};
 app.EndGameView = Backbone.View.extend({
+
 	events: {
 		'click #restartGame' : 'restartApp',
 		'click #submitScore' : 'addNewUser',

@@ -4,7 +4,6 @@ var AppRouter = Backbone.Router.extend({
       '': 'index',
       'begin': 'getData',
       'end/:score': 'endGame',
-      '*actions': 'defaultRoute' // Backbone will try match the route above first
   },
   routeRequest: function (route, triggered) {
     this.view.remove();

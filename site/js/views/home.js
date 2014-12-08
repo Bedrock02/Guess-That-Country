@@ -1,8 +1,7 @@
-// site/js/views/library.js
-
 var app = app || {};
 app.HomeView = Backbone.View.extend({
 	el: '.container',
+
 	events: {
 		'click #startApp': 'beginApp',
 		'click #homeImage': 'meow'
@@ -15,9 +14,6 @@ app.HomeView = Backbone.View.extend({
 	},
 	beginApp: function () {
 		router.routeRequest('begin', {trigger: true});
-	},
-	meow: function () {
-		console.log("meow");
 	},
 	render: function () {
 		this.$el.html( this.homeTmpl() );
