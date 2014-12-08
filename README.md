@@ -3,11 +3,11 @@ Guess-That-Country
 
 The Problem/Goal:
 =================
-Studying and learning can be boring or draining. The purpose of this application is to develop a fun learning game for children or students.
+Studying and learning can be boring and draining. The purpose of this application is to develop a fun learning game for children or students.
 
 The Solution:
 =============
-The application presents a number of flags one at a time. The user must attempt to identify each Country to which the flag belongs to. The user is given positive points for correct answers and negative points for wrong answers. At the end of the game, users are able to submit their score.
+The application presents a number of flags one at a time. The user must attempt to identify each Country to which the flag belongs to. The user is given points for correct answers and deducted points for wrong answers. At the end of the game, users are able to submit their score.
 
 Technology used:
 ================
