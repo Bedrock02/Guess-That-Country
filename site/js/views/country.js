@@ -72,12 +72,11 @@ app.CountryView = Backbone.View.extend({
 				this.changeState(this.lifeState.noLives);
 				this.shakeInput();
 				this.toggleAnswerVisibility();
-				var that = this;
 				setTimeout(function () {
-					that.changeState(that.lifeState.fullLife);
-					that.toggleAnswerVisibility();
-					that.nextModel();
-				},2000);
+					this.changeState(this.lifeState.fullLife);
+					this.toggleAnswerVisibility();
+					this.nextModel();
+				}.bind(this),2000);
 		}
 	},
 	modifyScore: function (points) {
@@ -85,23 +84,21 @@ app.CountryView = Backbone.View.extend({
 		this.$record.text(this.totalCorrectAnswers);
 	},
 	skipModel: function () {
-		var that = this;
 		this.toggleAnswerVisibility();
 		setTimeout(function () {
-			that.nextModel();
-			that.toggleAnswerVisibility();
-		},2000);
+			this.nextModel();
+			this.toggleAnswerVisibility();
+		}.bind(this),2000);
 	},
 	endGame: function () {
 		router.routeRequest('end/' + this.totalCorrectAnswers, true);
 	},
 	showReinforcement: function () {
 		this.$reinforcement.show('slow');
-		var that = this;
 		setTimeout( function () {
-			that.$reinforcement.hide('slow');
-			that.nextModel();
-		},2000);
+			this.$reinforcement.hide('slow');
+			this.nextModel();
+		}.bind(this),2000);
 	},
 	toggleAnswerVisibility: function () {
 		this.showAnswer = !this.showAnswer;
@@ -125,10 +122,9 @@ app.CountryView = Backbone.View.extend({
 		}
 		if( this.currentModel < this.countryCollection.length) {
 			this.$image.hide("slow")
-			var self = this;
 			setTimeout(function() {
-				self.setImage(self.countryCollection[self.currentModel].imgPath)
-			}, 500);
+				this.setImage(this.countryCollection[this.currentModel].imgPath)
+			}.bind(this), 500);
 			this.$image.show("slow");
 
 		} else {
