@@ -6,9 +6,9 @@ app.EndGameView = Backbone.View.extend({
 		'click #submitScore' : 'addNewUser',
 		'keypress input': 'checkSubmit'
 	},
-	el: '.container',
+	el: '.container-fluid',
 
-	endGameTmpl: _.template( $('#end-game-template').html() ),
+	template: 'end',
 
 	initialize: function (score) {
 		_.bindAll(this, 'renderCollection');
@@ -16,7 +16,6 @@ app.EndGameView = Backbone.View.extend({
 		this.collection = new app.Users();
 		this.collection.fetch({reset: true});
 
-		//this.listenTo(this.collection,'add', this.addtoScoreBoard);
 		this.listenTo( this.collection, 'reset', this.render );
 	},
 	checkSubmit: function (event) {
@@ -36,11 +35,14 @@ app.EndGameView = Backbone.View.extend({
 		this.collection.fetch({reset: true});
 	},
 	render: function () {
-		this.$el.html( this.endGameTmpl({score: this.totalScore}) );
-		this.renderCollection();
-		if(this.userAdded) {
-			this.$('.input-group').hide();
-		}
+		app.TemplateManager.get(this.template, function (text) {
+			var template = _.template(text);
+			this.$el.html( template({score: this.totalScore}) );
+			this.renderCollection();
+			if(this.userAdded) {
+				this.$('.input-group').hide();
+			}
+		}.bind(this));
 	},
 	renderCollection: function () {
 		this.collection.each(function( user ) {

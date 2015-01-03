@@ -1,95 +1,132 @@
-.container {
-  padding-bottom: 50px; }
-
-#home div {
+.container-fluid {
+  padding-bottom: 10px;
+  width: 90%;
   text-align: center; }
+
 #home #homeImage {
-  width: 400px;
-  height: 300px; }
+  background-image: url("/img/collection-national-flags.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 400px;
+  margin-bottom: 40px;
+  margin-top: 40px; }
+  @media screen and (min-width: 720px) {
+    #home #homeImage {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto; } }
 #home #startApp {
   margin-top: 15px;
   font-size: 30px;
-  padding: 20px 200px; }
+  width: 100%; }
+  @media screen and (min-width: 720px) {
+    #home #startApp {
+      width: 400px; } }
 
-#play {
-  text-align: center; }
-  #play input[name="country-name"] {
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+#play input[name="country-name"] {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 30px;
+  height: 50px !important; }
+  @media screen and (min-width: 720px) {
+    #play input[name="country-name"] {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto; } }
+#play button {
+  width: 193px;
+  text-transform: uppercase; }
+  #play button#submitAnswer {
+    margin-right: 10px; }
+  #play button#endGame {
+    margin-top: 40px;
+    width: 100%;
+    padding: 50px 9; }
+    @media screen and (min-width: 720px) {
+      #play button#endGame {
+        width: 400px;
+        opacity: 0.5; }
+        #play button#endGame:hover {
+          opacity: 1; } }
+#play #scoreKeep {
+  font-size: 25px;
+  padding-top: 21px; }
+@media screen and (min-width: 720px) {
+  #play #options {
     width: 400px;
-    font-size: 30px;
-    height: 50px !important; }
-  #play button {
-    width: 193px; }
-    #play button#submitAnswer {
-      margin-right: 10px; }
-    #play button#endGame {
-      margin-top: 40px;
-      width: 400px;
-      padding: 50px 9;
-      opacity: 0.5; }
-      #play button#endGame:hover {
-        opacity: 1; }
-  #play .flex-cont {
-    display: flex;
-    justify-content: space-between;
-    font-size: 19px; }
-  #play .lives {
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto; }
-    #play .lives div {
-      width: 10px;
-      height: 10px;
-      background-color: #18F500;
-      border-radius: 50%;
-      margin-left: 5px;
-      margin-right: 5px; }
-    #play .lives[state="two-lives"] #lifeThree {
-      background-color: #CF0000; }
-    #play .lives[state="one-life"] #lifeThree, #play .lives[state="one-life"] #lifeTwo {
-      background-color: #CF0000; }
-    #play .lives[state="no-lives"] #lifeThree, #play .lives[state="no-lives"] #lifeTwo, #play .lives[state="no-lives"] #lifeOne {
-      background-color: #CF0000; }
-  #play .image-cont {
-    margin: 50px 0;
-    height: 300px; }
-    #play .image-cont img {
-      width: 400px;
-      border: 1px solid #F2F2F2; }
-  #play #answer {
-    padding-bottom: 15px;
-    font-size: 25px;
-    text-transform: uppercase;
-    display: none; }
-  #play .positive-reinforcement {
-    display: none;
-    font-size: 45px;
-    color: #18F500; }
+    margin-left: auto;
+    margin-right: auto; } }
+#play .flex-cont {
+  display: flex;
+  justify-content: space-between; }
+#play .lives {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto; }
+  #play .lives div {
+    width: 20px;
+    height: 20px;
+    background-color: #18F500;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px; }
+  #play .lives[state="two-lives"] #lifeThree {
+    background-color: #CF0000; }
+  #play .lives[state="one-life"] #lifeThree, #play .lives[state="one-life"] #lifeTwo {
+    background-color: #CF0000; }
+  #play .lives[state="no-lives"] #lifeThree, #play .lives[state="no-lives"] #lifeTwo, #play .lives[state="no-lives"] #lifeOne {
+    background-color: #CF0000; }
+#play .image-cont {
+  margin: 50px 0;
+  height: 200px; }
+  @media screen and (min-width: 720px) {
+    #play .image-cont {
+      height: 300px; } }
+  #play .image-cont img {
+    width: 100%;
+    border: 1px solid #F2F2F2; }
+    @media screen and (min-width: 320px) {
+      #play .image-cont img {
+        width: 300px; } }
+    @media screen and (min-width: 720px) {
+      #play .image-cont img {
+        width: 400px; } }
+#play #answer {
+  padding-bottom: 15px;
+  font-size: 25px;
+  text-transform: uppercase;
+  display: none; }
+#play .positive-reinforcement {
+  display: none;
+  font-size: 45px;
+  color: #18F500; }
 
 #endGameView {
   text-align: center; }
-  #endGameView img#flagsImage {
-    height: 400px; }
   #endGameView button#restartGame {
     margin-top: 30px;
     width: 193px; }
   #endGameView .input-group {
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto; }
+    width: 100%; }
     #endGameView .input-group input {
       font-size: 20px; }
+    @media screen and (min-width: 720px) {
+      #endGameView .input-group {
+        width: 450px;
+        margin-left: auto;
+        margin-right: auto; } }
   #endGameView ul#scoreBoard {
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     margin-top: 20px;
     font-size: 20px; }
+    @media screen and (min-width: 720px) {
+      #endGameView ul#scoreBoard {
+        width: 450px;
+        margin-left: auto;
+        margin-right: auto; } }
   #endGameView ul.user-item {
     display: flex;
     margin: 0;

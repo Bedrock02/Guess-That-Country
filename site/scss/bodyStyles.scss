@@ -1,61 +1,88 @@
-.container {
-	padding-bottom: 50px;
+.container-fluid {
+	padding-bottom: 10px;
+	width: 90%;
+	text-align: center;
 }
 #home {
-	div {
-		text-align: center;
-	}
 	#homeImage {
-		width: 400px;
-		height: 300px;
+		background-image: url('/img/collection-national-flags.png');
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		height: 400px;
+		margin-bottom: 40px;
+		margin-top: 40px;
+		@media screen and (min-width: 720px) {
+			width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 	#startApp {
 		margin-top: 15px;
 		font-size: 30px;
-		padding: 20px 200px;
+		width: 100%;
+		@media screen and (min-width: 720px) {
+			width: 400px;
+		}
 	}
 }
 
 #play {
-	text-align: center;
 	input[name="country-name"] {
 		text-align: center;
 		display: block;
-		margin-left: auto;
-		margin-right: auto;
 		margin-top: 10px;
 		margin-bottom: 10px;
-		width: 400px;
+		width: 100%;
 		font-size: 30px;
 		height: 50px !important;
+		@media screen and (min-width: 720px) {
+			width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 	button {
 		width: 193px;
+		text-transform: uppercase;
 		&#submitAnswer {
 			margin-right: 10px;
 		}
 		&#endGame {
 			margin-top: 40px;
-			width: 400px;
-			padding: 50px 9;
-			opacity: 0.5;
-			&:hover {
-				opacity: 1;
+			width: 100%;
+			@media screen and (min-width: 720px) {
+				width: 400px;
+				opacity: 0.5;
+				&:hover {
+					opacity: 1;
+				}
 			}
+			padding: 50px 9;
+		}
+	}
+	#scoreKeep {
+		font-size: 25px;
+		padding-top: 21px;
+	}
+	#options {
+		@media screen and (min-width: 720px) {
+			width: 400px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 	.flex-cont {
 		display: flex;
 		justify-content: space-between;
-		font-size: 19px;
 	}
 	.lives {
 		display: flex;
 		margin-top: auto;
 		margin-bottom: auto;
 		div {
-			width: 10px;
-			height: 10px;
+			width: 20px;
+			height: 20px;
 			background-color:#18F500;
 			border-radius: 50%;
 			margin-left: 5px;
@@ -79,10 +106,19 @@
 	}
 	.image-cont {
 		margin: 50px 0;
-		height: 300px;
+		height: 200px;
+		@media screen and (min-width: 720px) {
+			height: 300px;
+		}
 		img {
-			width: 400px;
+			width: 100%;
 			border: 1px solid #F2F2F2;
+			@media screen and (min-width: 320px) {
+				width: 300px;
+			}
+			@media screen and (min-width: 720px) {
+				width: 400px;
+			}
 		}
 	}
 	#answer {
@@ -100,28 +136,31 @@
 
 #endGameView {
 	text-align: center;
-	img#flagsImage {
-		height: 400px;
-	}
 	button#restartGame {
 		margin-top: 30px;
 		width: 193px;
 	}
 	.input-group {
-		width: 450px;
-		margin-left: auto;
-		margin-right: auto;
+		width: 100%;
 		input {
 			font-size: 20px;
+		}
+		@media screen and (min-width: 720px) {
+			width: 450px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 	ul {
 		&#scoreBoard {
-			width: 450px;
-			margin-left: auto;
-			margin-right: auto;
+			width: 100%;
 			margin-top: 20px;
 			font-size: 20px;
+			@media screen and (min-width: 720px) {
+				width: 450px;
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 		&.user-item {
 			display: flex;

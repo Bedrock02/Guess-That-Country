@@ -38,7 +38,7 @@ app.get( '/api/countries', function(request, response) {
 
 //get list of all users that submitted a highscore
 app.get( '/api/users', function(request, response) {
-	return UserModel.find({}, null, {sort: {highscore: -1}}, function( err, users ) {
+	return UserModel.find({}, null, {sort: {highscore: -1}, limit: 10}, function( err, users ) {
 		if(!err) {
 			return response.send( users );
 		} else {

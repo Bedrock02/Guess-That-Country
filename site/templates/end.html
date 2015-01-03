@@ -1,0 +1,25 @@
+<section id="endGameView">
+	<div class = "row">
+		<h1>Game Over</h1>
+	</div>
+
+	<div class="row">
+		<h3>Top 10 High Scores</h3>
+		<ul id='scoreBoard' class="list-group" ></ul>
+	</div>
+
+	<div class="row">
+		<h3>Score: <%= score %> </h3>
+
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Enter Name" id="username">
+			<span class="input-group-btn">
+				<button id="submitScore" class="btn btn-default" type="button">Submit Score!</button>
+			</span>
+		</div>
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary" id="restartGame">Try Again</button>
+		</div>
+	</div>
+</section>

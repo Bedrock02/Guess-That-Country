@@ -1,7 +1,7 @@
 var app = app || {};
 app.CountryView = Backbone.View.extend({
 
-	el: '.container',
+	el: '.container-fluid',
 
 	events: {
 		'click #submitAnswer': 'checkAnswer',
@@ -10,14 +10,14 @@ app.CountryView = Backbone.View.extend({
 		'keypress input[name="country-name"]': 'checkSubmit'
 	},
 
+	template: 'country',
+
 	lifeState: {
 		fullLife : 'full',
 		twoLives : 'two-lives',
 		oneLife : 'one-life',
 		noLives : 'no-lives'
 	},
-
-	countryTmpl: _.template( $('#country-question-template').html() ),
 
 	initialize: function () {
 		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility', 'showReinforcement', 'modifyScore');
@@ -31,15 +31,6 @@ app.CountryView = Backbone.View.extend({
 		this.showAnswer = false;
 		this.currentState = this.lifeState.fullLife;
 		this.render();
-
-
-		this.$userInput = this.$('input[name="country-name"]');
-		this.$lives = this.$('.lives');
-		this.$image = this.$('#countryImage');
-		this.$answer = this.$('#answer');
-		this.$record = this.$('.record #number');
-		this.$reinforcement = this.$('.positive-reinforcement');
-		this.setImage(this.countryCollection[this.currentModel].imgPath);
 	},
 	setImage: function (path) {
 		this.$image.attr('src', 'img/'+path);
@@ -132,7 +123,16 @@ app.CountryView = Backbone.View.extend({
 		}
 	},
 	render: function () {
-		this.$el.html( this.countryTmpl( ) );
+		app.TemplateManager.get(this.template, function(text) {
+			this.$el.html( text );
+			this.$userInput = this.$('input[name="country-name"]');
+			this.$lives = this.$('.lives');
+			this.$image = this.$('#countryImage');
+			this.$answer = this.$('#answer');
+			this.$record = this.$('.record #number');
+			this.$reinforcement = this.$('.positive-reinforcement');
+			this.setImage(this.countryCollection[this.currentModel].imgPath);
+		}.bind(this));
 	},
 	remove: function () {
 		this.undelegateEvents();

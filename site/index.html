@@ -2,105 +2,15 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Backbone.js Library</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Guess That Country</title>
 		<link rel="stylesheet" href="css/bodyStyles.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/jquery-ui.css">
 	</head>
 	<body>
-		<div class="container"></div>
+		<div class="container-fluid"></div>
 
-		<script type="text/template" id="homeView">
-				<section id='home'>
-					<div class="row">
-						<h1>Know Your Countries</h1>
-					</div>
-
-					<div class="row">
-						<img id="homeImage" src="img/collection-national-flags.png"/>
-						<br></br>
-
-						<p><strong>Purpose:</strong>  To Identify the Country that the given flag belongs to</p>
-						<p><strong>Limitations:</strong>  You only have three guesses for each flag</p>
-						<p><strong>Have Fun:</strong> Have fun with this!</p>
-					</div>
-					<div class="row">
-						<a>
-							<button type="button" class="btn btn-primary" id="startApp">Start</button>
-						</a>
-					</div>
-				</section>
-			</script>
-
-			<script type="text/template" id="country-question-template">
-				<section id="play">
-					<h1>Guess The Country</h1>
-
-					<div class="row flex-cont">
-
-						<div class="lives" state="full">
-							<div id="lifeOne"></div>
-							<div id="lifeTwo"></div>
-							<div id="lifeThree"></div>
-						</div>
-
-						<div class='record'>
-							<span>Correct: </span><span id="number">0</span>
-						</div>
-					</div>
-
-					<div class="row image-cont">
-						<div id="answer"></div>
-						<img id="countryImage" />
-					</div>
-
-					<div class="row positive-reinforcement">
-						<span>Correct!</span>
-					</div>
-
-					<div class="row">
-						<input type="text" class="form-control" name="country-name" placeholder="Enter Answer">
-					</div>
-					<div class="btn-group">
-						<button type="button" class="btn btn-success" id="submitAnswer">submit</button>
-						<button type="button" class="btn btn-primary" id="skipQuestion">skip</button>
-					</div>
-					<div class="row">
-						<div class="btn-group">
-						<button type="button" class="btn btn-danger" id="endGame">End Game</button>
-						</div>
-					</div>
-				</section>
-			</script>
-
-			<script type="text/template" id="end-game-template">
-				<section id="endGameView">
-					<div class = "row">
-						<h1>Game Over</h1>
-					</div>
-
-					<div class="row">
-						<h3>High Scores</h3>
-						<ul id='scoreBoard' class="list-group" ></ul>
-					</div>
-
-					<div class="row">
-
-						<h3>Score: <%= score %> </h3>
-
-						<div class="input-group">
-      				<input type="text" class="form-control" placeholder="Enter Name" id="username">
-      				<span class="input-group-btn">
-        				<button id="submitScore" class="btn btn-default" type="button">Submit Score!</button>
-      				</span>
-    				</div>
-
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary" id="restartGame">Try Again</button>
-						</div>
-					</div>
-				</section>
-			</script>
 
 			<script type="text/template" id="userTemplate">
 				<ul class="user-item">
@@ -115,6 +25,9 @@
 		<script src="js/lib/underscore-min.js"></script>
 		<script src="js/lib/backbone-min.js"></script>
 		<!--End Dependencies -->
+
+		<!-- JST Dependencies -->
+		<script src="/templates/templateManager.js"></script>
 
 		<!-- Views -->
 		<script src="js/views/home.js"></script>
@@ -132,6 +45,7 @@
 		<script src="js/collections/countries.js"></script>
 		<script src="js/collections/users.js"></script>
 		<!-- End Collections -->
+
 
 		<script src="js/routers/router.js"></script>
 		<script src="js/app.js"></script>

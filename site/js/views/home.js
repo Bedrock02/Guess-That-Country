@@ -1,13 +1,12 @@
 var app = app || {};
 app.HomeView = Backbone.View.extend({
-	el: '.container',
+	el: '.container-fluid',
 
 	events: {
 		'click #startApp': 'beginApp',
 		'click #homeImage': 'meow'
 	},
-
-	homeTmpl: _.template( $('#homeView').html() ),
+	template: 'home',
 
 	initialize: function () {
 		this.render();
@@ -16,7 +15,9 @@ app.HomeView = Backbone.View.extend({
 		router.routeRequest('begin', {trigger: true});
 	},
 	render: function () {
-		this.$el.html( this.homeTmpl() );
+		app.TemplateManager.get(this.template, function(text) {
+			this.$el.html( text );
+		}.bind(this));
 	},
 	remove: function () {
 		this.undelegateEvents();
