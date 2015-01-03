@@ -64,8 +64,6 @@ Currently there are no tests for this application. Future improvements of the ap
 Room For Improvement
 ====================
 The following are ideas that is being considered for the next version of this application
-- Responsive Design for mobile devices
 - Better Design (Colors, Images)
 - Change in game strategy: Adding levels or ability to unlock levels
 - More data: To bring in the concept of Regions, or having specific flags from a specific regions
-- Better organize underscore templates using JST or a similar tool
