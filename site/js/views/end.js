@@ -11,12 +11,11 @@ app.EndGameView = Backbone.View.extend({
 	template: 'end',
 
 	initialize: function (results) {
-		_.bindAll(this, 'renderCollection');
+		_.bindAll(this, 'renderCollection','updateCollection');
 		this.totalScore = results.score;
 		this.region = results.region;
 		this.collection = new app.Users();
 		this.collection.fetch({reset: true});
-
 		this.listenTo( this.collection, 'reset', this.render );
 	},
 	checkSubmit: function (event) {
@@ -34,6 +33,12 @@ app.EndGameView = Backbone.View.extend({
 		};
 		this.collection.create( userData );
 		this.userAdded = true;
+		this.updateCollection();
+	},
+	updateCollection: function () {
+		this.$el.empty();
+		this.collection = new app.Users();
+		this.collection.fetch();
 		this.render();
 	},
 	render: function () {
@@ -47,8 +52,7 @@ app.EndGameView = Backbone.View.extend({
 		}.bind(this));
 	},
 	renderCollection: function () {
-		var filteredCollection = this.collection.where({'region': this.region});
-		this.collection = new app.Users( filteredCollection );
+		this.collection = this.collection.filterByRegion(this.region).limitCollection();
 		this.collection.each(function( user ) {
 			this.renderUser( user );
 		}, this );

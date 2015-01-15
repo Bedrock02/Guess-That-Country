@@ -12,6 +12,8 @@ app.CountryView = Backbone.View.extend({
 
 	template: 'country',
 
+	lock: false,
+
 	lifeState: {
 		fullLife : 'full',
 		twoLives : 'two-lives',
@@ -55,6 +57,8 @@ app.CountryView = Backbone.View.extend({
 		this.$image.attr('src', 'img/'+path);
 	},
 	checkAnswer: function () {
+		if(this.lock) { return };
+		this.lock = true;
 		var potentialAnswer = this.$userInput.val();
 		if( this.countryCollection[this.currentModel].name === potentialAnswer.toLowerCase()) {
 			this.correctAnswer();
@@ -94,6 +98,8 @@ app.CountryView = Backbone.View.extend({
 		this.$record.text(this.totalCorrectAnswers);
 	},
 	skipModel: function () {
+		if(this.lock) { return };
+		this.lock = true;
 		this.toggleAnswerVisibility();
 		setTimeout(function () {
 			this.nextModel();
@@ -136,10 +142,10 @@ app.CountryView = Backbone.View.extend({
 				this.setImage(this.countryCollection[this.currentModel].imgPath)
 			}.bind(this), 500);
 			this.$image.show("slow");
-
 		} else {
 			this.endGame();
 		}
+		this.lock = false;
 	},
 	render: function () {
 		app.TemplateManager.get(this.template, function(text) {
