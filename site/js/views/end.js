@@ -10,9 +10,10 @@ app.EndGameView = Backbone.View.extend({
 
 	template: 'end',
 
-	initialize: function (score) {
+	initialize: function (results) {
 		_.bindAll(this, 'renderCollection');
-		this.totalScore = score;
+		this.totalScore = results.score;
+		this.region = results.region;
 		this.collection = new app.Users();
 		this.collection.fetch({reset: true});
 
@@ -28,16 +29,17 @@ app.EndGameView = Backbone.View.extend({
 		if(!name) { return; }
 		var userData = {
 			username: name,
-			highscore: this.totalScore
+			highscore: this.totalScore,
+			region: this.region
 		};
 		this.collection.create( userData );
 		this.userAdded = true;
-		this.collection.fetch({reset: true});
+		this.render();
 	},
 	render: function () {
 		app.TemplateManager.get(this.template, function (text) {
 			var template = _.template(text);
-			this.$el.html( template({score: this.totalScore}) );
+			this.$el.html( template({score: this.totalScore, group: this.region}) );
 			this.renderCollection();
 			if(this.userAdded) {
 				this.$('.input-group').hide();
@@ -45,6 +47,8 @@ app.EndGameView = Backbone.View.extend({
 		}.bind(this));
 	},
 	renderCollection: function () {
+		var filteredCollection = this.collection.where({'region': this.region});
+		this.collection = new app.Users( filteredCollection );
 		this.collection.each(function( user ) {
 			this.renderUser( user );
 		}, this );

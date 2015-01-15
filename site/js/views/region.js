@@ -1,17 +1,19 @@
 var app = app || {};
-app.HomeView = Backbone.View.extend({
+app.RegionView = Backbone.View.extend({
 	el: '.container-fluid',
 
+	template: 'region',
+
 	events: {
-		'click #startApp': 'beginApp'
+		'click .list-group a': 'selection'
 	},
-	template: 'home',
 
 	initialize: function () {
 		this.render();
 	},
-	beginApp: function () {
-		router.routeRequest('region', {trigger: true});
+	selection: function (e) {
+		e.preventDefault();
+		router.routeRequest('begin/' + e.target.text, true);
 	},
 	render: function () {
 		app.TemplateManager.get(this.template, function(text) {

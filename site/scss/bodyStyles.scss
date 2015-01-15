@@ -106,10 +106,7 @@
 	}
 	.image-cont {
 		margin: 50px 0;
-		height: 200px;
-		@media screen and (min-width: 720px) {
-			height: 300px;
-		}
+		min-height: 200px;
 		img {
 			width: 100%;
 			border: 1px solid #F2F2F2;
@@ -136,6 +133,7 @@
 
 #endGameView {
 	text-align: center;
+	text-transform: capitalize;
 	button#restartGame {
 		margin-top: 30px;
 		width: 193px;
@@ -169,5 +167,13 @@
 			padding: 0;
 			justify-content: space-between;
 		}
+	}
+}
+
+#region {
+	text-transform: capitalize;
+	.list-group {
+		font-size: 20px;
+		padding-top: 30px;
 	}
 }

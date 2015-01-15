@@ -19,9 +19,28 @@ app.CountryView = Backbone.View.extend({
 		noLives : 'no-lives'
 	},
 
-	initialize: function () {
-		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility', 'showReinforcement', 'modifyScore');
-		$.get('/api/countries', this.onCountriesSuccess);
+	initialize: function (data) {
+		this.region = data;
+
+		_.bindAll(this, 'onCountriesSuccess',
+			'wrongAnswer',
+			'correctAnswer',
+			'setImage',
+			'toggleAnswerVisibility',
+			'showReinforcement',
+			'modifyScore');
+
+		if(data.toLowerCase() == "all") {
+			$.get('/api/countries', this.onCountriesSuccess);
+		} else {
+			$.ajax({
+  			type: "POST",
+  			url: '/api/countries/region',
+  			data: {region: data},
+  			success: this.onCountriesSuccess,
+  			dataType: 'JSON'
+			});
+		}
 	},
 	onCountriesSuccess: function (data) {
 		this.countryCollection = _.sample( data, data.length);
@@ -82,7 +101,7 @@ app.CountryView = Backbone.View.extend({
 		}.bind(this),2000);
 	},
 	endGame: function () {
-		router.routeRequest('end/' + this.totalCorrectAnswers, true);
+		router.routeRequest('end/' + this.totalCorrectAnswers + '/' + this.region, true);
 	},
 	showReinforcement: function () {
 		this.$reinforcement.show('slow');
