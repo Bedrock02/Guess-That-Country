@@ -1,5 +1,6 @@
 Guess-That-Country
 ==================
+learning-countries.herokuapp.com
 
 The Problem/Goal:
 =================
@@ -40,6 +41,7 @@ Endpoints
 - GET api/users
 - POST api/users
 - GET api/countries
+- POST api/countries/region
 
 Data Models that are retrieved are: 
 - Country
@@ -66,4 +68,3 @@ Room For Improvement
 The following are ideas that is being considered for the next version of this application
 - Better Design (Colors, Images)
 - Change in game strategy: Adding levels or ability to unlock levels
-- More data: To bring in the concept of Regions, or having specific flags from a specific regions
