@@ -81,10 +81,7 @@
     background-color: #CF0000; }
 #play .image-cont {
   margin: 50px 0;
-  height: 200px; }
-  @media screen and (min-width: 720px) {
-    #play .image-cont {
-      height: 300px; } }
+  min-height: 200px; }
   #play .image-cont img {
     width: 100%;
     border: 1px solid #F2F2F2; }
@@ -105,7 +102,8 @@
   color: #18F500; }
 
 #endGameView {
-  text-align: center; }
+  text-align: center;
+  text-transform: capitalize; }
   #endGameView button#restartGame {
     margin-top: 30px;
     width: 193px; }
@@ -133,3 +131,9 @@
     list-style: none;
     padding: 0;
     justify-content: space-between; }
+
+#region {
+  text-transform: capitalize; }
+  #region .list-group {
+    font-size: 20px;
+    padding-top: 30px; }

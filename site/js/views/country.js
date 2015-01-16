@@ -12,6 +12,8 @@ app.CountryView = Backbone.View.extend({
 
 	template: 'country',
 
+	lock: false,
+
 	lifeState: {
 		fullLife : 'full',
 		twoLives : 'two-lives',
@@ -19,9 +21,28 @@ app.CountryView = Backbone.View.extend({
 		noLives : 'no-lives'
 	},
 
-	initialize: function () {
-		_.bindAll(this, 'onCountriesSuccess', 'wrongAnswer', 'correctAnswer', 'setImage', 'toggleAnswerVisibility', 'showReinforcement', 'modifyScore');
-		$.get('/api/countries', this.onCountriesSuccess);
+	initialize: function (data) {
+		this.region = data;
+
+		_.bindAll(this, 'onCountriesSuccess',
+			'wrongAnswer',
+			'correctAnswer',
+			'setImage',
+			'toggleAnswerVisibility',
+			'showReinforcement',
+			'modifyScore');
+
+		if(data.toLowerCase() == "all") {
+			$.get('/api/countries', this.onCountriesSuccess);
+		} else {
+			$.ajax({
+  			type: "POST",
+  			url: '/api/countries/region',
+  			data: {region: data},
+  			success: this.onCountriesSuccess,
+  			dataType: 'JSON'
+			});
+		}
 	},
 	onCountriesSuccess: function (data) {
 		this.countryCollection = _.sample( data, data.length);
@@ -36,6 +57,8 @@ app.CountryView = Backbone.View.extend({
 		this.$image.attr('src', 'img/'+path);
 	},
 	checkAnswer: function () {
+		if(this.lock) { return };
+		this.lock = true;
 		var potentialAnswer = this.$userInput.val();
 		if( this.countryCollection[this.currentModel].name === potentialAnswer.toLowerCase()) {
 			this.correctAnswer();
@@ -69,12 +92,15 @@ app.CountryView = Backbone.View.extend({
 					this.nextModel();
 				}.bind(this),2000);
 		}
+		this.lock = false;
 	},
 	modifyScore: function (points) {
 		this.totalCorrectAnswers += points;
 		this.$record.text(this.totalCorrectAnswers);
 	},
 	skipModel: function () {
+		if(this.lock) { return };
+		this.lock = true;
 		this.toggleAnswerVisibility();
 		setTimeout(function () {
 			this.nextModel();
@@ -82,7 +108,7 @@ app.CountryView = Backbone.View.extend({
 		}.bind(this),2000);
 	},
 	endGame: function () {
-		router.routeRequest('end/' + this.totalCorrectAnswers, true);
+		router.routeRequest('end/' + this.totalCorrectAnswers + '/' + this.region, true);
 	},
 	showReinforcement: function () {
 		this.$reinforcement.show('slow');
@@ -117,10 +143,10 @@ app.CountryView = Backbone.View.extend({
 				this.setImage(this.countryCollection[this.currentModel].imgPath)
 			}.bind(this), 500);
 			this.$image.show("slow");
-
 		} else {
 			this.endGame();
 		}
+		this.lock = false;
 	},
 	render: function () {
 		app.TemplateManager.get(this.template, function(text) {

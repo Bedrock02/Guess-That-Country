@@ -12,25 +12,58 @@
 { "name" : "suriname", "imgPath" : "suriname-flag.png", "region" : "americas" }
 { "name" : "uruguay", "imgPath" : "uruguay-flag.png", "region" : "americas" }
 { "name" : "venezuela", "imgPath" : "venezuela-flag.png", "region" : "americas" }
+{ "name" : "united states", "imgPath": "united-states.png", "region" : "americas"}
+{ "name" : "mexico", "imgPath": "mexico.png", "region" : "americas"}
+{ "name" : "canada", "imgPath": "canada.png", "region" : "americas"}
+{ "name" : "guatemala", "imgPath": "guatemala.png", "region" : "americas"}
+{ "name" : "honduras", "imgPath": "honduras.png", "region" : "americas"}
+{ "name" : "nicaragua", "imgPath": "nicaragua.png", "region" : "americas"}
+{ "name" : "el salvador", "imgPath": "el-salvador.png", "region" : "americas"}
+{ "name" : "costa rica", "imgPath": "costa-rica.png", "region" : "americas"}
+{ "name" : "panama", "imgPath": "panama.png", "region" : "americas"}
 
-{ "name" : "united states", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "mexico", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "canada", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "guatemala", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "honduras", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "nicaragua", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "el salvador", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "costa rica", "imgPath": "not-available.png", "region" : "americas"}
-{ "name" : "panama", "imgPath": "not-available.png", "region" : "americas"}
+{ "name" : "united kingdom", "imgPath": "united-kingdom.png", "region" : "europe"}
+{ "name" : "france", "imgPath": "france.png", "region" : "europe"}
+{ "name" : "portugal", "imgPath": "portugal.png", "region" : "europe"}
+{ "name" : "spain", "imgPath": "spain.png", "region" : "europe"}
+{ "name" : "italy", "imgPath": "italy.png", "region" : "europe"}
+{ "name" : "germany", "imgPath": "germany.png", "region" : "europe"}
+{ "name" : "ireland", "imgPath": "ireland.png", "region" : "europe"}
+{ "name" : "switzerland", "imgPath": "switzerland.png", "region" : "europe"}
+{ "name" : "austria", "imgPath": "austria.png", "region" : "europe"}
+{ "name" : "belgium", "imgPath": "belgium.png", "region" : "europe"}
+{ "name" : "netherlands", "imgPath": "netherlands.png", "region" : "europe"}
+{ "name" : "norway", "imgPath": "norway.png", "region" : "europe"}
+{ "name" : "sweden", "imgPath": "sweden.png", "region" : "europe"}
+{ "name" : "finland", "imgPath": "finland.png", "region" : "europe"}
+{ "name" : "poland", "imgPath": "poland.png", "region" : "europe"}
+{ "name" : "czech republic", "imgPath": "czech-republic.png", "region" : "europe"}
+{ "name" : "croatia", "imgPath": "croatia.png", "region" : "europe"}
+{ "name" : "serbia", "imgPath": "serbia.png", "region" : "europe"}
+{ "name" : "greece", "imgPath": "greece.png", "region" : "europe"}
+{ "name" : "bulgaria", "imgPath": "bulgaria.png", "region" : "europe"}
+{ "name" : "romania", "imgPath": "romania.png", "region" : "europe"}
+{ "name" : "hungary", "imgPath": "hungary.png", "region" : "europe"}
+{ "name" : "slovakia", "imgPath": "slovakia.png", "region" : "europe"}
+{ "name" : "denmark", "imgPath": "denmark.png", "region" : "europe"}
+{ "name" : "ukraine", "imgPath": "ukraine.png", "region" : "europe"}
+{ "name" : "lithuania", "imgPath": "lithuania.png", "region" : "europe"}
+{ "name" : "estonia", "imgPath": "estonia.png", "region" : "europe"}
+{ "name" : "turkey", "imgPath": "turkey.png", "region" : "europe"}
 
-{ "name" : "england", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "france", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "portugal", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "spain", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "italy", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "germany", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "ireland", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "switzerland", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "austria", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "belgium", "imgPath": "not-available.png", "region" : "europe"}
-{ "name" : "netherlands", "imgPath": "not-available.png", "region" : "europe"}
+{ "name" : "algeria", "imgPath": "algeria.png", "region" : "africa"}
+{ "name" : "angola", "imgPath": "angola.png", "region" : "africa"}
+{ "name" : "cameroon", "imgPath": "cameroon.png", "region" : "africa"}
+{ "name" : "egypt", "imgPath": "egypt.png", "region" : "africa"}
+{ "name" : "ethiopia", "imgPath": "ethiopia.png", "region" : "africa"}
+{ "name" : "ghana", "imgPath": "ghana.png", "region" : "africa"}
+{ "name" : "ivory coast", "imgPath": "ivory-coast.png", "region" : "africa"}
+{ "name" : "kenya", "imgPath": "kenya.png", "region" : "africa"}
+{ "name" : "libya", "imgPath": "libya.png", "region" : "africa"}
+{ "name" : "morocco", "imgPath": "morocco.png", "region" : "africa"}
+{ "name" : "nigeria", "imgPath": "nigeria.png", "region" : "africa"}
+{ "name" : "senegal", "imgPath": "senegal.png", "region" : "africa"}
+{ "name" : "south africa", "imgPath": "south-africa.png", "region" : "africa"}
+{ "name" : "sudan", "imgPath": "sudan.png", "region" : "africa"}
+{ "name" : "tunisia", "imgPath": "tunisia.png", "region" : "africa"}
+{ "name" : "zimbabwe", "imgPath": "zimbabwe.png", "region" : "africa"}
