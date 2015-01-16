@@ -92,6 +92,7 @@ app.CountryView = Backbone.View.extend({
 					this.nextModel();
 				}.bind(this),2000);
 		}
+		this.lock = false;
 	},
 	modifyScore: function (points) {
 		this.totalCorrectAnswers += points;

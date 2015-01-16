@@ -11,9 +11,12 @@ app.EndGameView = Backbone.View.extend({
 	template: 'end',
 
 	initialize: function (results) {
-		_.bindAll(this, 'renderCollection','updateCollection');
+		_.bindAll(this, 'renderCollection','updateCollection', 'fetchCollection');
 		this.totalScore = results.score;
 		this.region = results.region;
+		this.fetchCollection();
+	},
+	fetchCollection: function () {
 		this.collection = new app.Users();
 		this.collection.fetch({reset: true});
 		this.listenTo( this.collection, 'reset', this.render );
@@ -37,9 +40,7 @@ app.EndGameView = Backbone.View.extend({
 	},
 	updateCollection: function () {
 		this.$el.empty();
-		this.collection = new app.Users();
-		this.collection.fetch();
-		this.render();
+		this.fetchCollection();
 	},
 	render: function () {
 		app.TemplateManager.get(this.template, function (text) {
