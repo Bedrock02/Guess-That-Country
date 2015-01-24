@@ -9,7 +9,7 @@ app.CountryView = Backbone.View.extend({
 		'click #endGame': 'endGame',
 		'keypress input[name="country-name"]': 'checkSubmit'
 	},
-
+	
 	template: 'country',
 
 	lock: false,
@@ -57,7 +57,7 @@ app.CountryView = Backbone.View.extend({
 		this.$image.attr('src', 'img/'+path);
 	},
 	checkAnswer: function () {
-		if(this.lock) { return };
+		if(this.lock) { return; }
 		this.lock = true;
 		var potentialAnswer = this.$userInput.val();
 		if( this.countryCollection[this.currentModel].name === potentialAnswer.toLowerCase()) {
@@ -99,7 +99,7 @@ app.CountryView = Backbone.View.extend({
 		this.$record.text(this.totalCorrectAnswers);
 	},
 	skipModel: function () {
-		if(this.lock) { return };
+		if(this.lock) { return; }
 		this.lock = true;
 		this.toggleAnswerVisibility();
 		setTimeout(function () {
@@ -138,9 +138,9 @@ app.CountryView = Backbone.View.extend({
 			this.$userInput.val('');
 		}
 		if( this.currentModel < this.countryCollection.length) {
-			this.$image.hide("slow")
+			this.$image.hide("slow");
 			setTimeout(function() {
-				this.setImage(this.countryCollection[this.currentModel].imgPath)
+				this.setImage(this.countryCollection[this.currentModel].imgPath);
 			}.bind(this), 500);
 			this.$image.show("slow");
 		} else {
