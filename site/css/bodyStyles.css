@@ -99,9 +99,10 @@ body {
         width: 400px; } }
 #play #answer {
   padding-bottom: 15px;
-  font-size: 25px;
+  font-size: 45px;
   text-transform: uppercase;
-  display: none; }
+  display: none;
+  color: #82d1fa; }
 #play .positive-reinforcement {
   display: none;
   font-size: 45px;
