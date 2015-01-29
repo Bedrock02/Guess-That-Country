@@ -12,4 +12,4 @@ app.TemplateManager = {
 			}.bind(this));
 		}
 	}
-}
+};

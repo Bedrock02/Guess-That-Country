@@ -1,9 +1,16 @@
+@import 'constants';
+body {
+	background-color:$midnight-blue !important;
+}
 .container-fluid {
 	padding-bottom: 10px;
 	width: 90%;
 	text-align: center;
 }
 #home {
+	h1 {
+		color: $columbia-blue !important;
+	}
 	#homeImage {
 		background-image: url('/img/collection-national-flags.png');
 		background-size: 100% 100%;
@@ -64,6 +71,7 @@
 	#scoreKeep {
 		font-size: 25px;
 		padding-top: 21px;
+		color:$columbia-blue;
 	}
 	#options {
 		@media screen and (min-width: 720px) {
@@ -132,6 +140,9 @@
 }
 
 #endGameView {
+	h1, h3 {
+		color:$columbia-blue;
+	}
 	text-align: center;
 	text-transform: capitalize;
 	button#restartGame {
@@ -171,9 +182,18 @@
 }
 
 #region {
+	h1 {
+		color:$columbia-blue;
+	}
 	text-transform: capitalize;
 	.list-group {
+		color:$columbia-blue !important;
 		font-size: 20px;
 		padding-top: 30px;
+		a.list-group-item {
+			color:$midnight-blue;
+		}
+
 	}
+
 }
