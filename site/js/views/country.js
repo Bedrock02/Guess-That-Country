@@ -14,6 +14,8 @@ app.CountryView = Backbone.View.extend({
 
 	lock: false,
 
+	hintOn: false,
+
 	lifeState: {
 		fullLife : 'full',
 		twoLives : 'two-lives',
@@ -59,7 +61,7 @@ app.CountryView = Backbone.View.extend({
 	checkAnswer: function () {
 		if(this.lock) { return; }
 		this.lock = true;
-		var potentialAnswer = this.$userInput.val();
+		var potentialAnswer = this.$userInput.val().trim();
 		if( this.countryCollection[this.currentModel].name === potentialAnswer.toLowerCase()) {
 			this.correctAnswer();
 		} else {
