@@ -14,8 +14,6 @@ app.CountryView = Backbone.View.extend({
 
 	lock: false,
 
-	hintOn: false,
-
 	lifeState: {
 		fullLife : 'full',
 		twoLives : 'two-lives',
