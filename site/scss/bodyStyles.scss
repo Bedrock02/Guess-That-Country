@@ -16,12 +16,9 @@ body {
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		height: 400px;
-		margin-bottom: 40px;
-		margin-top: 40px;
+		margin: 40px auto;
 		@media screen and (min-width: 720px) {
 			width: 400px;
-			margin-left: auto;
-			margin-right: auto;
 		}
 	}
 	#startApp {
@@ -38,15 +35,12 @@ body {
 	input[name="country-name"] {
 		text-align: center;
 		display: block;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 10px auto;
 		width: 100%;
 		font-size: 30px;
 		height: 50px !important;
 		@media screen and (min-width: 720px) {
 			width: 400px;
-			margin-left: auto;
-			margin-right: auto;
 		}
 	}
 	button {
@@ -113,11 +107,11 @@ body {
 		}
 	}
 	.image-cont {
-		margin: 50px 0;
+		margin: 25px 0;
 		min-height: 200px;
 		img {
 			width: 100%;
-			border: 1px solid #F2F2F2;
+			border: 1px solid $border-white;
 			@media screen and (min-width: 320px) {
 				width: 300px;
 			}
@@ -127,16 +121,52 @@ body {
 		}
 	}
 	#answer {
-		padding-bottom: 15px;
 		font-size: 45px;
 		text-transform: uppercase;
-		display: none;
+		opacity: 0;
 		color:$columbia-blue;
 	}
 	.positive-reinforcement {
 		display: none;
 		font-size: 45px;
-		color: #18F500;
+		color: $green;
+	}
+	#easy, #genius {
+		display: none;
+	}
+	.choices {
+		list-style:none;
+		margin: 0 auto;
+		padding: 0;
+		@media screen and (min-width: 320px) {
+			width: 300px;
+		}
+		@media screen and (min-width: 720px) {
+			width: 400px;
+		}
+	}
+	.choice {
+		background-color: $grey;
+		height: 39px;
+		margin-top: 10px;
+		border-radius: 5px;
+		&.clicked {
+			background-color: $columbia-blue;
+			color: $white;
+		}
+		a {
+			display: block;
+			height: 100%;
+			text-decoration: none;
+			font-size: 25px;
+			color: $midnight-blue;
+			text-transform: capitalize;
+			&:hover {
+				background-color: #82D1F2;
+				border-radius: 5px;
+				color: $white;
+			}
+		}
 	}
 }
 
@@ -182,7 +212,7 @@ body {
 	}
 }
 
-#region {
+#region, #difficulty {
 	h1 {
 		color:$columbia-blue;
 	}

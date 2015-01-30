@@ -1,19 +1,21 @@
 var app = app || {};
-app.RegionView = Backbone.View.extend({
+app.DifficultyView = Backbone.View.extend({
 	el: '.container-fluid',
 
-	template: 'region',
+	template: 'difficulty',
 
 	events: {
 		'click .list-group a': 'selection'
 	},
 
-	initialize: function () {
+	initialize: function (region){
+		this.data = region;
 		this.render();
 	},
 	selection: function (e) {
 		e.preventDefault();
-		router.routeRequest('difficulty/' + e.target.text, true);
+		var mode = $(e.target).attr('data-mode');
+		router.routeRequest('begin/' + this.data + '/' + mode, true);
 	},
 	render: function () {
 		app.TemplateManager.get(this.template, function(text) {

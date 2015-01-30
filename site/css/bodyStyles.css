@@ -13,13 +13,10 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 400px;
-  margin-bottom: 40px;
-  margin-top: 40px; }
+  margin: 40px auto; }
   @media screen and (min-width: 720px) {
     #home #homeImage {
-      width: 400px;
-      margin-left: auto;
-      margin-right: auto; } }
+      width: 400px; } }
 #home #startApp {
   margin-top: 15px;
   font-size: 30px;
@@ -31,16 +28,13 @@ body {
 #play input[name="country-name"] {
   text-align: center;
   display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   width: 100%;
   font-size: 30px;
   height: 50px !important; }
   @media screen and (min-width: 720px) {
     #play input[name="country-name"] {
-      width: 400px;
-      margin-left: auto;
-      margin-right: auto; } }
+      width: 400px; } }
 #play button {
   width: 193px;
   text-transform: uppercase; }
@@ -86,11 +80,11 @@ body {
   #play .lives[state="no-lives"] #lifeThree, #play .lives[state="no-lives"] #lifeTwo, #play .lives[state="no-lives"] #lifeOne {
     background-color: #CF0000; }
 #play .image-cont {
-  margin: 50px 0;
+  margin: 25px 0;
   min-height: 200px; }
   #play .image-cont img {
     width: 100%;
-    border: 1px solid #F2F2F2; }
+    border: 1px solid #f2f2f2; }
     @media screen and (min-width: 320px) {
       #play .image-cont img {
         width: 300px; } }
@@ -98,15 +92,45 @@ body {
       #play .image-cont img {
         width: 400px; } }
 #play #answer {
-  padding-bottom: 15px;
   font-size: 45px;
   text-transform: uppercase;
-  display: none;
+  opacity: 0;
   color: #82d1fa; }
 #play .positive-reinforcement {
   display: none;
   font-size: 45px;
-  color: #18F500; }
+  color: #18f500; }
+#play #easy, #play #genius {
+  display: none; }
+#play .choices {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0; }
+  @media screen and (min-width: 320px) {
+    #play .choices {
+      width: 300px; } }
+  @media screen and (min-width: 720px) {
+    #play .choices {
+      width: 400px; } }
+#play .choice {
+  background-color: #f7f7f7;
+  height: 39px;
+  margin-top: 10px;
+  border-radius: 5px; }
+  #play .choice.clicked {
+    background-color: #82d1fa;
+    color: white; }
+  #play .choice a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000f3c;
+    text-transform: capitalize; }
+    #play .choice a:hover {
+      background-color: #82D1F2;
+      border-radius: 5px;
+      color: white; }
 
 #endGameView {
   text-align: center;
@@ -141,13 +165,13 @@ body {
     padding: 0;
     justify-content: space-between; }
 
-#region {
+#region, #difficulty {
   text-transform: capitalize; }
-  #region h1 {
+  #region h1, #difficulty h1 {
     color: #82d1fa; }
-  #region .list-group {
+  #region .list-group, #difficulty .list-group {
     color: #82d1fa !important;
     font-size: 20px;
     padding-top: 30px; }
-    #region .list-group a.list-group-item {
+    #region .list-group a.list-group-item, #difficulty .list-group a.list-group-item {
       color: #000f3c; }
