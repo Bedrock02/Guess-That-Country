@@ -88,7 +88,7 @@ app.CountryView = Backbone.View.extend({
 		}
 	},
 	checkEasyAnswer: function(e) {
-		if (this.lock) { return }
+		if (this.lock) { return; }
 		this.lock = true;
 		var potentialAnswer = this.$(e.target).text();
 		if( this.countryCollection[this.currentModel].name === potentialAnswer.toLowerCase()) {
@@ -180,7 +180,7 @@ app.CountryView = Backbone.View.extend({
 				this.addChoices();
 				this.removeSelectedAnswer();
 			}
-			this.$image.fadeTo(500,1);
+			_.delay(this.$image.fadeTo(500,1), 1000);
 
 		} else {
 			this.endGame();
