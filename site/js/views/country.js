@@ -34,7 +34,8 @@ app.CountryView = Backbone.View.extend({
 			'setPoints',
 			'setRecord',
 			'buttonClicked',
-			'showModeView');
+			'showModeView',
+			'removeSelectedAnswer');
 
 		this.region = data.region;
 		this.mode = data.mode;
@@ -116,6 +117,7 @@ app.CountryView = Backbone.View.extend({
 				this.changeState(this.lifeState.noLives);
 				this.shakeInput(e);
 				this.toggleAnswerVisibility();
+
 				_.delay(function () {
 					this.changeState(this.lifeState.fullLife);
 					this.toggleAnswerVisibility();
@@ -168,12 +170,18 @@ app.CountryView = Backbone.View.extend({
 		}
 		if( this.currentModel < this.countryCollection.length) {
 			this.$image.fadeTo(500,0);
+
 			_.delay(function() {
 				this.setImage(this.countryCollection[this.currentModel].imgPath);
 				this.$answer.text(this.countryCollection[this.currentModel].name);
 			}.bind(this), 500);
+
 			this.$image.fadeTo(500,1);
-			this.addChoices();
+			if(this.mode == 'easy') {
+				this.addChoices();
+				this.removeSelectedAnswer();
+			}
+
 		} else {
 			this.endGame();
 		}
@@ -237,5 +245,9 @@ app.CountryView = Backbone.View.extend({
 		}
 		this.currentSelectedAnswer = event.target.parentElement;
 		this.$(event.target.parentElement).toggleClass('clicked');
+	},
+	removeSelectedAnswer: function() {
+		this.$(this.currentSelectedAnswer).toggleClass('clicked');
+		this.currentSelectedAnswer = null;
 	}
 });
