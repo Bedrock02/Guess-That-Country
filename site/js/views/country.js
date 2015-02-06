@@ -176,11 +176,11 @@ app.CountryView = Backbone.View.extend({
 				this.$answer.text(this.countryCollection[this.currentModel].name);
 			}.bind(this), 500);
 
-			this.$image.fadeTo(500,1);
 			if(this.mode == 'easy') {
 				this.addChoices();
 				this.removeSelectedAnswer();
 			}
+			this.$image.fadeTo(500,1);
 
 		} else {
 			this.endGame();
