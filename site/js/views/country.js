@@ -213,7 +213,7 @@ app.CountryView = Backbone.View.extend({
 		do {
 			possibleAnswers = _.sample(this.countryCollection, 3);
 		}
-		while(_.contains( choices, answer));
+		while(_.contains( possibleAnswers, answer));
 		possibleAnswers.push(answer);
 		possibleAnswers = _.shuffle(possibleAnswers);
 		var choices = this.$('.choice a span');
